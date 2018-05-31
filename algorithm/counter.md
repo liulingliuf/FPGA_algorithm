@@ -1,10 +1,11 @@
 #counter vhdl&verilog coding<br>
 ----------------------------
---Binary counter<br>
---Source:www.fpga4fun.com/Counters1.html<br>
+Binary counter<br>
+Source:www.fpga4fun.com/Counters1.html<br>
+
 ##1.0 the fast and efficient<br>
 ----------------------------------
----------------vhdl---------------
+---------------vhdl---------------<br>
 signal counter:  std_logic_vector(31 downto 0);<br>
 process(clk,reset_n)<br>
 begin<br>
@@ -18,8 +19,6 @@ end process;<br>
 ---------------verilog---------------<br>
 reg [31:0] counter;<br>
 always @(posedge sys_clk) counter <= counter + 1;<br>
------------------------------------<br>
---end of 1.0<br>
 
 ##--2.0<br>
 ------------------------------------
@@ -27,8 +26,6 @@ always @(posedge sys_clk) counter <= counter + 1;<br>
 ---------------verilog---------------<br>
 reg [31:0] counter = 0;<br>
 always @(posedge sys_clk) counter <= counter + 1;<br>
------------------------------------<br>
---end of 2.0<br>
 
 ##--3.0<br>
 --------------------------------------
@@ -84,7 +81,7 @@ wire [32:0] cnt_next = cnt + 1;<br>
 always @(posedge sys_clk ) cnt <= cnt_next[31:0];<br>
 wire tick = cnt_next[32];<br>
 
-/-----------------vhdl------------------<br>
+-----------------vhdl------------------<br>
 signal cnt: std_logic_vector(31 downto 0);<br>
 signal cnt_next: std_logic_vector(32 downto 0);<br>
 process(sys_clk, reset_n)<br>
@@ -98,7 +95,7 @@ begin<br>
   end if;<br>
 end process;<br>
 
---------------------or-----------------<br>
+-----------------vhdl or-----------------<br>
 signal cnt: std_logic_vector(31 downto 0);<br>
 process(sys_clk, reset_n)<br>
 variable cnt_next: std_logic_vector(32 downto 0);<br>
